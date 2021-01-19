@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, View, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, ActivityIndicator, Dimensions } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovies } from '../Stores/Actions/MovieAction.js'
 import { FlatList } from 'react-native-gesture-handler'
 import { Appbar } from 'react-native-paper';
 import MovieCard from '../Components/Card.js'
+
+const windowWidth = Dimensions.get("window").height
 
 const HomeScreen = ({navigation}) => {
 
@@ -32,7 +34,7 @@ const HomeScreen = ({navigation}) => {
         <View>
             {/* Appbar */}
             <Appbar.Header style={styles.backgroundAppBarHeader}>
-                <Appbar.Content  title={'MoviList'} subtitle='Now Playing' />
+                <Appbar.Content titleStyle={styles.contentAppBar} title={'MoviList'} subtitle='Now Playing' />
             </Appbar.Header>
         </View>
         <View style={styles.container}>
@@ -70,6 +72,9 @@ const styles = StyleSheet.create({
     },
     backgroundAppBarHeader: {
         backgroundColor: '#094352'
+    },
+    contentAppBar: {
+        fontSize: Math.ceil(windowWidth/30)
     }
   });
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Dimensions, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native'
-import { Card } from 'react-native-paper';
+import { Card, Subheading } from 'react-native-paper';
 import { useDispatch } from 'react-redux'
 import { getMovie, getRelatedMovies } from '../Stores/Actions/MovieAction.js'
 
@@ -31,7 +31,7 @@ const MovieCard = ({movie, navigation}) => {
                         style={styles.imageStyle}>
                             <View
                             style={styles.viewTextStyle}>
-                                <Text style={styles.textMovie}>{movie.title}</Text>
+                                <Subheading style={styles.textMovie}>{movie.title}</Subheading>
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
@@ -43,8 +43,8 @@ const MovieCard = ({movie, navigation}) => {
 
 const styles = StyleSheet.create({
     imageStyle: {
-        width: (windowWidth * (95/100))/2.4,
-        height: windowHeight/3
+        width: Math.ceil((windowWidth * (95/100))/2.4),
+        height: Math.ceil(windowHeight/3)
     },
     viewTextStyle: {
         position: 'absolute',
@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     textMovie: {
         backgroundColor:'white',
         opacity:0.8,
-        fontSize: ((windowWidth * (3/100)))
+        fontSize: Math.ceil(windowWidth * (3/100)),
+        paddingHorizontal: 5
     },
     marginBetweenCard: {
         marginVertical: 1

@@ -36,7 +36,7 @@ const DetailPage = ({ navigation }) => {
         <View>
             <Appbar.Header style={styles.backgroundAppBar}>
                 <Appbar.BackAction onPress={goBack} />
-                <Appbar.Content  title={movie.title} subtitle={release_date} />
+                <Appbar.Content titleStyle={styles.contentAppBar} title={movie.title} subtitle={release_date} />
             </Appbar.Header>
         </View>
 
@@ -79,7 +79,7 @@ const DetailPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     imageStyle: {
-        width: windowWidth/3,
+        width: Math.ceil(windowWidth/3),
         height: windowHeight,
         borderRadius: 5
     },
@@ -112,6 +112,9 @@ const styles = StyleSheet.create({
     imageCentering: {
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    contentAppBar: {
+        fontSize: Math.ceil(windowWidth/40)
     }
 })
 
